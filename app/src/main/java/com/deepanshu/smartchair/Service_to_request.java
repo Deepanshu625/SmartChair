@@ -47,19 +47,19 @@ public class Service_to_request extends Service {
         public void run() {
             try  {
                 while (true) {
-                    String api = "https://cloud.boltiot.com/remote/59983265-d10a-4e7d-87f7-89129dcfb50f/analogRead?pin=A0&deviceName=BOLT3432362";
+                    String api = "https://cloud.boltiot.com/remote/<api key>/analogRead?pin=A0&deviceName=<Boltid>";
                     String response = To_request.request_data(api);
                     shared_prefrence();
                     int value = 0;
                     value = string_to_json(response);
                     if(value>30 && flag==1)
                     {
-                        String api1 = "https://cloud.boltiot.com/remote/59983265-d10a-4e7d-87f7-89129dcfb50f/digitalWrite?pin=4&state=HIGH&deviceName=BOLT3432362";
+                        String api1 = "https://cloud.boltiot.com/remote/<bolt api>/digitalWrite?pin=4&state=HIGH&deviceName=<Bolt id>";
                         String response1 = To_request.request_data(api1);
                     }
                     else
                     {
-                        String api2 = "https://cloud.boltiot.com/remote/59983265-d10a-4e7d-87f7-89129dcfb50f/digitalWrite?pin=4&state=LOW&deviceName=BOLT3432362";
+                        String api2 = "https://cloud.boltiot.com/remote/<bolt api>/digitalWrite?pin=4&state=LOW&deviceName=<boltid>";
                         String response2 = To_request.request_data(api2);
                     }
 
@@ -74,7 +74,7 @@ public class Service_to_request extends Service {
         @Override
         public void run() {
             try {
-                String api2 = "https://cloud.boltiot.com/remote/5?9983265-d10a-4e7d-87f7-89129dcfb50f/digitalWrite?pin=4&state=LOW&deviceName=BOLT3432362";
+                String api2 = "https://cloud.boltiot.com/remote/<bolt api>/digitalWrite?pin=4&state=LOW&deviceName=<boltid>";
                 String response2 = To_request.request_data(api2);
             } catch (Exception e) {
                 e.printStackTrace();
